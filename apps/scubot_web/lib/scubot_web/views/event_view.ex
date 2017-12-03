@@ -16,6 +16,8 @@ defmodule ScubotWeb.EventView do
       description: event.description,
       url: event.url,
       start_time: event.start_time,
-      end_time: event.end_time}
+      end_time: event.end_time,
+      time_postfix: event.time_postfix
+    }
   end
 end

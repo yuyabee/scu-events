@@ -9,6 +9,7 @@ defmodule Scubot.SCU.Event do
     field :start_time, :naive_datetime
     field :title, :string
     field :url, :string
+    field :time_postfix, :string
 
     timestamps()
   end
@@ -16,7 +17,7 @@ defmodule Scubot.SCU.Event do
   @doc false
   def changeset(%Event{} = event, attrs) do
     event
-    |> cast(attrs, [:title, :description, :url, :start_time, :end_time])
+    |> cast(attrs, [:title, :description, :url, :start_time, :end_time, :time_postfix])
     |> validate_required([:title])
   end
 end

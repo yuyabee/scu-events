@@ -23,7 +23,7 @@ defmodule Scubot.SCU.Client do
   end
 
   def from_wild(%{"title" => title} = event),
-    do: from_wild(event |> Map.delete("title"), %{title: title, location: nil, start_time: nil, end_time: nil, description: nil})
+    do: from_wild(event |> Map.delete("title"), %{title: title, location: nil, start_time: nil, end_time: nil, description: nil, time_postfix: nil})
   def from_wild(_),
     do: nil
 
@@ -35,6 +35,8 @@ defmodule Scubot.SCU.Client do
     do: from_wild(event |> Map.delete("ts_end"), %{acc | end_time: end_time |> DateTime.from_unix!})
   def from_wild(%{"summary" => description}, acc),
     do: %{acc | description: description}
+  def from_wild(%{"time_postfix" => time_postfix} = event, acc),
+    do: from_wild(event |> Map.delete("time_postfix"), %{acc | time_postfix: time_postfix})
   def from_wild(_, acc),
     do: acc
 end
