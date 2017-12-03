@@ -3,7 +3,7 @@ defmodule ScubotWeb.EventView do
   alias ScubotWeb.EventView
 
   def render("index.json", %{events: events}) do
-    %{data: render_many(events, EventView, "event.json")}
+    render_many(events, EventView, "event.json")
   end
 
   def render("show.json", %{event: event}) do
