@@ -10,4 +10,4 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-Scubot.SCU.Client.get_events
+Scubot.SCU.Client.get_events!

@@ -23,6 +23,6 @@ defmodule ScubotWeb.Router do
   scope "/api", ScubotWeb do
     pipe_through :api
 
-    resources "/events", EventController, except: [:new, :edit]
+    resources "/events", EventController, only: [:index]
   end
 end
